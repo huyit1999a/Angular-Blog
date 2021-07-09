@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { PostModel } from './post.model';
@@ -16,6 +16,7 @@ export class PostsComponent implements OnInit {
   showAdd!: boolean;
   showUpdate!: boolean;
   p: number = 1;
+  @ViewChild('closeModal') closeModal!: ElementRef;
 
   constructor(private formBuilder: FormBuilder, private api: ApiService) {}
 
@@ -30,6 +31,8 @@ export class PostsComponent implements OnInit {
     this.getAllPosts();
   }
 
+  ngAfterViewInit(): void {}
+
   clickAddPost() {
     this.formPost.reset();
     this.showAdd = true;
@@ -37,6 +40,9 @@ export class PostsComponent implements OnInit {
   }
 
   createPost() {
+    if (this.formPost.invalid) {
+      return;
+    }
     this.postModelObj.title = this.formPost.value.title;
     this.postModelObj.content = this.formPost.value.content;
     this.postModelObj.userId = this.formPost.value.userId;
@@ -44,8 +50,7 @@ export class PostsComponent implements OnInit {
     this.api.createPost(this.postModelObj).subscribe(
       (res) => {
         console.log(res);
-        let ref = document.getElementById('cancel');
-        ref?.click();
+        this.closeModal.nativeElement.click();
         this.formPost.reset();
         this.getAllPosts();
       },
@@ -77,6 +82,9 @@ export class PostsComponent implements OnInit {
   }
 
   updatePostDetails() {
+    if (this.formPost.invalid) {
+      return;
+    }
     this.postModelObj.title = this.formPost.value.title;
     this.postModelObj.content = this.formPost.value.content;
     this.postModelObj.userId = this.formPost.value.userId;
@@ -84,8 +92,7 @@ export class PostsComponent implements OnInit {
     this.api
       .updatePost(this.postModelObj, this.postModelObj.id)
       .subscribe((res) => {
-        let ref = document.getElementById('cancel');
-        ref?.click();
+        this.closeModal.nativeElement.click();
         this.formPost.reset();
         this.getAllPosts();
       });

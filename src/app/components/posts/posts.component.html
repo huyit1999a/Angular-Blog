@@ -78,11 +78,9 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" [disabled]="!formPost.valid" *ngIf="showAdd" class="btn btn-primary"
-            (click)="createPost()">Add</button>
-          <button type="button" [disabled]="!formPost.valid" *ngIf="showUpdate" class="btn btn-primary"
-            (click)="updatePostDetails()">Update</button>
+          <button type="button" #closeModal id="cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="createPost()">Add</button>
+          <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="updatePostDetails()">Update</button>
         </div>
       </div>
     </div>

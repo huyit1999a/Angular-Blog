@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { UserModel } from './users.model';
@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   totalLength!: any;
   p: number = 1;
   order: string = 'name';
+  @ViewChild('closeModal') closeModal!: ElementRef;
 
   constructor(private formbuilder: FormBuilder, private api: ApiService) {}
 
@@ -38,6 +39,10 @@ export class UsersComponent implements OnInit {
   }
 
   postUserDetails() {
+    if (this.formUser.invalid) {
+      return;
+    }
+
     this.userModelObj.name = this.formUser.value.name;
     this.userModelObj.email = this.formUser.value.email;
     this.userModelObj.password = this.formUser.value.password;
@@ -46,8 +51,7 @@ export class UsersComponent implements OnInit {
     this.api.postUser(this.userModelObj).subscribe(
       (res) => {
         console.log(res);
-        let ref = document.getElementById('cancel');
-        ref?.click();
+        this.closeModal?.nativeElement.click();
         this.formUser.reset();
         this.getAllUsers();
       },
@@ -84,6 +88,9 @@ export class UsersComponent implements OnInit {
   }
 
   updateUserDetails() {
+    if (this.formUser.invalid) {
+      return;
+    }
     this.userModelObj.name = this.formUser.value.name;
     this.userModelObj.email = this.formUser.value.email;
     this.userModelObj.password = this.formUser.value.password;
@@ -92,8 +99,7 @@ export class UsersComponent implements OnInit {
     this.api
       .updateUser(this.userModelObj, this.userModelObj.id)
       .subscribe((res) => {
-        let ref = document.getElementById('cancel');
-        ref?.click();
+        this.closeModal?.nativeElement.click();
         this.formUser.reset();
         this.getAllUsers();
       });
