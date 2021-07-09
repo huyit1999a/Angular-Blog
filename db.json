@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nguyen Huy",
+      "email": "huy@example.com",
+      "password": "123456",
+      "birthDate": "2000-06-07"
+    },
+    {
+      "id": 2,
+      "name": "Nguyen Van An",
+      "email": "nguyenan@example.com",
+      "password": "123456",
+      "birthDate": "1999-02-16"
+    },
+    {
+      "id": 3,
+      "name": "Nguyen Van Vu",
+      "email": "nguyenvu@example.com",
+      "password": "123456",
+      "birthDate": "1999-02-10"
+    },
+    {
+      "id": 4,
+      "name": "Nguyen Van A",
+      "email": "huya@example.com",
+      "password": "123456",
+      "birthDate": "2000-06-07"
+    },
+    {
+      "id": 5,
+      "name": "Nguyen Van B",
+      "email": "nguyenana@example.com",
+      "password": "123456",
+      "birthDate": "1999-02-16"
+    },
+    {
+      "id": 6,
+      "name": "Nguyen Van C",
+      "email": "nguyenvua@example.com",
+      "password": "123456",
+      "birthDate": "1999-02-10"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Post 1",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ipsum non magna elementum tincidunt. Mauris dignissim tellus sit amet dolor eleifend convallis. Donec sodales, urna a aliquet convallis, dolor sem egestas nisl, in sagittis erat nulla nec quam. Quisque pretium non orci a dictum. Nullam fringilla venenatis turpis, vel viverra est pellentesque vel. Pellentesque vestibulum convallis metus at finibus. In eget pellentesque nisi. Nunc a turpis ut diam suscipit efficitur ut in dui. Fusce efficitur nulla libero, nec blandit ante mattis in."
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "Post 2",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ipsum non magna elementum tincidunt. Mauris dignissim tellus sit amet dolor eleifend convallis. Donec sodales, urna a aliquet convallis, dolor sem egestas nisl, in sagittis erat nulla nec quam. Quisque pretium non orci a dictum. Nullam fringilla venenatis turpis, vel viverra est pellentesque vel. Pellentesque vestibulum convallis metus at finibus. In eget pellentesque nisi. Nunc a turpis ut diam suscipit efficitur ut in dui. Fusce efficitur nulla libero, nec blandit ante mattis in."
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "title": "Post 3",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ipsum non magna elementum tincidunt. Mauris dignissim tellus sit amet dolor eleifend convallis. Donec sodales, urna a aliquet convallis, dolor sem egestas nisl, in sagittis erat nulla nec quam. Quisque pretium non orci a dictum. Nullam fringilla venenatis turpis, vel viverra est pellentesque vel. Pellentesque vestibulum convallis metus at finibus. In eget pellentesque nisi. Nunc a turpis ut diam suscipit efficitur ut in dui. Fusce efficitur nulla libero, nec blandit ante mattis in."
+    },
+    {
+      "id": 4,
+      "userId": 5,
+      "title": "Post 4",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ipsum non magna elementum tincidunt. Mauris dignissim tellus sit amet dolor eleifend convallis. Donec sodales, urna a aliquet convallis, dolor sem egestas nisl, in sagittis erat nulla nec quam. Quisque pretium non orci a dictum. Nullam fringilla venenatis turpis, vel viverra est pellentesque vel. Pellentesque vestibulum convallis metus at finibus. In eget pellentesque nisi. Nunc a turpis ut diam suscipit efficitur ut in dui. Fusce efficitur nulla libero, nec blandit ante mattis in."
+    },
+    {
+      "id": 5,
+      "userId": 6,
+      "title": "Post 5",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ipsum non magna elementum tincidunt. Mauris dignissim tellus sit amet dolor eleifend convallis. Donec sodales, urna a aliquet convallis, dolor sem egestas nisl, in sagittis erat nulla nec quam. Quisque pretium non orci a dictum. Nullam fringilla venenatis turpis, vel viverra est pellentesque vel. Pellentesque vestibulum convallis metus at finibus. In eget pellentesque nisi. Nunc a turpis ut diam suscipit efficitur ut in dui. Fusce efficitur nulla libero, nec blandit ante mattis in."
+    },
+    {
+      "id": 6,
+      "userId": 4,
+      "title": "Post 6",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ipsum non magna elementum tincidunt. Mauris dignissim tellus sit amet dolor eleifend convallis. Donec sodales, urna a aliquet convallis, dolor sem egestas nisl, in sagittis erat nulla nec quam. Quisque pretium non orci a dictum. Nullam fringilla venenatis turpis, vel viverra est pellentesque vel. Pellentesque vestibulum convallis metus at finibus. In eget pellentesque nisi. Nunc a turpis ut diam suscipit efficitur ut in dui. Fusce efficitur nulla libero, nec blandit ante mattis in."
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "postId": 1,
+      "comment": "bai viet hay"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "postId": 2,
+      "comment": "Bai viet hay"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "postId": 3,
+      "comment": "Bai viet hay"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "postId": 1,
+      "comment": "bai viet rat hay"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "postId": 3,
+      "comment": "ok"
+    },
+    {
+      "id": 6,
+      "userId": 5,
+      "postId": 6,
+      "comment": "bai viet hay"
+    }
+  ]
+}

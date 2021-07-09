@@ -1,0 +1,18 @@
+<div *ngIf="postDetail">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mt-5"><button (click)="goBack()" class="btn btn-dark">Go Back</button></div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h1 class="mt-5">{{postDetail.title}}</h1>
+        <p class="mt-4">{{postDetail.content}}</p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <app-comment></app-comment>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<h3>Comments</h3>
+<div class="row pb-5">
+  <div class="col-6 mt-3 bg-light">
+    <div class="comment">
+      <ul class="list-group list-group-flush py-3">
+        <div class="div" *ngFor="let com of commentData">
+          <li class="list-group-item d-flex justify-content-between" *ngIf="com.postId === postId">
+            <div class="comment-text"><strong>@</strong><span class="user-comment"
+                *ngFor="let user of userData">{{user.id
+                === com.userId ? user.name :''}}</span>:
+              {{com.comment}}
+            </div>
+            <div>
+              <i (click)="onEdit(com)" class="far fa-edit btn btn-success mr-2"></i>
+              <i (click)="deleteComment(com)" class="far fa-trash-alt btn btn-danger"></i>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="col-1"></div>
+  <div class="col-5">
+    <form class="mt-3" [formGroup]="formComment">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Comment</label>
+        <textarea class="form-control" formControlName="comment" rows="4"></textarea>
+        <small class="error" *ngIf="formComment.get('comment')?.invalid && formComment.get('comment')?.touched ">Comment
+          is
+          required</small>
+      </div>
+      <div class="form-group">
+        <label>User</label>
+        <select class="form-control" formControlName="userId">
+          <option *ngFor="let user of userData" [ngValue]="user.id">
+            {{user.name}}
+          </option>
+        </select>
+        <small class="error" *ngIf="formComment.get('userId')?.invalid && formComment.get('userId')?.touched ">User is
+          required</small>
+      </div>
+      <button [disabled]="!formComment.valid" *ngIf="showAdd" (click)="createComment()" type="submit"
+        class="btn btn-primary">Submit</button>
+      <button [disabled]="!formComment.valid" *ngIf="showUpdate" (click)="updateComment()" type="submit"
+        class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>

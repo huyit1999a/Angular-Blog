@@ -1,0 +1,15 @@
+.comment .btn {
+  padding: 0 4px;
+}
+
+.comment-text {
+  width: 85%;
+}
+
+.user-comment {
+  font-weight: 700;
+}
+
+.error {
+  color: red;
+}

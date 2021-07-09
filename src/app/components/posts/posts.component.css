@@ -1,0 +1,15 @@
+.post-content {
+  width: 50%;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.error {
+  color: red;
+}
+
+td a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row mt-5">
+    <h1>Posts</h1>
+  </div>
+  <div class="row d-flex justify-content-end mt-2">
+    <button (click)="clickAddPost()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create
+      Post</button>
+  </div>
+  <div class="row">
+    <div class="col-12 mt-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">PostDetail</th>
+            <th scope="col">UserId</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of postData | paginate: {itemsPerPage:4, currentPage:p}; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{post.title}}</td>
+            <td class="post-content">{{post.content}}</td>
+            <td><a routerLink="/posts/{{post.id}}">Detail</a></td>
+            <td>{{post.userId}}</td>
+            <td>
+              <button (click)="onEdit(post)" class="btn btn-info" data-toggle="modal"
+                data-target="#exampleModal">Edit</button>
+              <button (click)="deletePost(post)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mt-5 d-flex justify-content-end">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Post Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formPost">
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" formControlName="title" class="form-control" aria-describedby="emailHelp">
+              <small class="error" *ngIf="formPost.get('title')?.invalid && formPost.get('title')?.touched ">Name is
+                required</small>
+            </div>
+            <div class="form-group">
+              <label>Content</label>
+              <textarea class="form-control" formControlName="content" rows="5"></textarea>
+              <small class="error" *ngIf="formPost.get('content')?.invalid && formPost.get('content')?.touched ">Content
+                is
+                required</small>
+            </div>
+            <div class="form-group">
+              <label>User</label>
+              <select class="form-control" formControlName="userId">
+                <option *ngFor="let user of userData" [ngValue]="user.id">
+                  {{user.name}}
+                </option>
+              </select>
+              <small class="error" *ngIf="formPost.get('userId')?.invalid && formPost.get('userId')?.touched ">User is
+                required</small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" [disabled]="!formPost.valid" *ngIf="showAdd" class="btn btn-primary"
+            (click)="createPost()">Add</button>
+          <button type="button" [disabled]="!formPost.valid" *ngIf="showUpdate" class="btn btn-primary"
+            (click)="updatePostDetails()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
